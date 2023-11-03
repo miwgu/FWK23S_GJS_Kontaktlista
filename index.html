@@ -13,6 +13,7 @@
 
             <h3 class="mt-3 mb-sm-3">Kontaktlista</h3>
 
+          <!--
           <form class="mt-4 row g-3">
             <div class="col-md-4">
 
@@ -27,6 +28,15 @@
               <button type="submit" class="btn btn-primary">Radera lista</button>
             </div>
           </form>
+          -->
+          <div class="input-group row g-2">
+            <input type="text" aria-label="name" class="form-control col-md-4 " placeholder="Namn">
+            <input type="text" aria-label="phone" class="form-control col-md-4" placeholder="Telefon">
+            <div class="col-md-4">
+            <button type="submit" class="btn btn-primary "  >Skapa</button>
+            <button type="submit" class="btn btn-danger ">Radera lista</button>
+          </div>
+          </div>
 
 
         <hr>
@@ -35,13 +45,21 @@
         
 
               <!--Start list-->
-        <div class="container mt-3 ms-3 m-sm-5 ">
-                <ul class="list-group list-group-horizontal row g-3">
-                    <li class="list-group-item col-md-4" >Namn A</li>
-                    <li class="list-group-item col-md-4" >Telefon A</li>
-                    <li class="list-group-item col-md-4" style="border: none;"><button class="btn btn-secondary">Ändra</button> <button class="btn btn-secondary">Radera</button></li>
-                    
-                </ul>
+        <div class="container mt-3  m-sm-5 ">
+
+            <!--   <ul class="list-group list-group-horizontal row g-3 p-1">
+                  <li class="list-group-item col-md-4" >Namn A</li>
+                  <li class="list-group-item col-md-4" >Telefon A</li>
+                  <li class="list-group-item col-md-4" style="border: none;"><button class="btn btn-secondary">Ändra</button> <button class="btn btn-secondary">Radera</button></li>
+                  
+              </ul>
+              --> 
+              <ul class="list-group list-group-horizontal-md  row g-2">
+                <li class="list-group-item col-md-4 " >Namn A</li>
+                <li class="list-group-item col-md-4" >Telefon A</li>
+                <li class="list-group-item col-md-4" style="border: none;"><button class="btn btn-secondary">Ändra</button> <button class="btn btn-secondary">Radera</button></li>
+                
+            </ul>
         </div>
 
 
