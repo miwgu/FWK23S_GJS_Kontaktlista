@@ -76,6 +76,8 @@ function displayValues () {
     </div>
     `;
 
+    contact.appendChild(listItem);
+
     //###############Ändra button###########################
 /**
  * Function:changeValues
@@ -113,23 +115,34 @@ function displayValues () {
     //###############Radera button###########################
 /**
  * Function:deleteRow
- * remove each row(<li> ...</li>) as child from <ol>----</ol> id = contact  
+ * remove each row(<li> ...</li>) as child from <ol>----</ol> id = contact
+ * find index which you want to delete  
  * delete object from array
  */
     let deleteBtn = listItem.querySelector('.delete-button');
     
     let deleteRow =()=>{
-      contact.removeChild(listItem);
-  
-      contactList.splice(index,1);
+
+      let index= contactList.findIndex(item=> item === newRow);// find index to match object which want to be delete
+      console.log("INDEX here:"+ index)
+      contact.removeChild(listItem); // delete <li>...</li> i html
+      console.log(listItem)
+      console.log("index"+index)
+
+      // Need to delete object to match this index which you find before
+      if(index!==-1){
+      contactList.splice(index,1); // delete object in your array 
       console.log(contactList.length);
       console.log(contactList);
-    //listItem.style.display="none"; It does not work because when you add a new contact my function printout all contacts in list again
-    }
+     } else{
+      console.log("Error! Your caluculation of index do not match your array ")
+     }
+
+  }
 
     deleteBtn.addEventListener('click', deleteRow);
 
-    contact.appendChild(listItem);
+    
     
   })
 
