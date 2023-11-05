@@ -2,7 +2,7 @@ let contactList =[];
 let inputName = document.getElementById("inputName");
 let inputPhone = document.getElementById("inputPhone");
 let createBtn = document.getElementById("create");
-
+let errorMessage= document.querySelector(".invalid-feedback");
 let contact = document.getElementById("contact");
 
 let deleteListBtn = document.getElementById("deleteList");
@@ -24,13 +24,21 @@ let addList =()=>{
     inputName.value= '';// Clear the field
     inputPhone.value='';
     console.log(contactList.length)
-
+    console.log(contactList)
+   
+    displayErrorMessage("none")
     displayValues () 
   } else {
-    console.log("Får ej skapa tom kontakt")
+
+    displayErrorMessage("block")
+    
   }
 }
 
+
+function displayErrorMessage (block_or_none){
+ return errorMessage.style.display =block_or_none;
+}
 
 function displayValues () {
 
@@ -84,10 +92,10 @@ function displayValues () {
     deleteBtn.addEventListener('click',()=>{
       contact.removeChild(listItem);
       contactList.splice(index,1);
-
+      console.log(contactList.length)
+      console.log(contactList)
     //listItem.style.display="none"; It does not work because when you add a new contact my function printout all list again
     });
-  
 
     contact.appendChild(listItem);
     
