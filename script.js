@@ -12,7 +12,7 @@ let deleteListBtn = document.getElementById("deleteList");
 
 
 //let updateBtn = document.getElementById("update");
-let deleteBtn = document.getElementById("delete");
+//let deleteBtn = document.getElementById("delete");
 
 let addList =()=>{
     let name= inputName.value;
@@ -52,7 +52,7 @@ function displayValues () {
     </div>
     `;
 
-    
+    //###############Ändra button###########################
     //1. Ändra buttan should change disabled->false in input tag 
     //2. Second time it should save changed value
     let updateBtn = listItem.querySelector(".update-button");
@@ -77,6 +77,17 @@ function displayValues () {
     }
 
     });
+
+    //###############Radera button###########################
+    let deleteBtn = listItem.querySelector('.delete-button');
+    
+    deleteBtn.addEventListener('click',()=>{
+      contact.removeChild(listItem);
+      contactList.splice(index,1);
+
+    //listItem.style.display="none"; It does not work because when you add a new contact my function printout all list again
+    });
+  
 
     contact.appendChild(listItem);
     
