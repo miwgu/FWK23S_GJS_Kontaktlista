@@ -1,13 +1,18 @@
 let contactList =[];
 let inputName = document.getElementById("inputName");
 let inputPhone = document.getElementById("inputPhone");
-let createButton = document.getElementById("create");
-
-//let nameInList = document.getElementById("nameInList1");
-//let phoneInList = document.getElementById("phoneInList1");
+let createBtn = document.getElementById("create");
 
 let contact = document.getElementById("contact");
 
+let deleteListBtn = document.getElementById("deleteList");
+
+
+
+
+
+//let updateBtn = document.getElementById("update");
+let deleteBtn = document.getElementById("delete");
 
 let addList =()=>{
     let name= inputName.value;
@@ -26,7 +31,6 @@ let addList =()=>{
   }
 }
 
-createButton.addEventListener('click', addList);
 
 function displayValues () {
 
@@ -39,23 +43,77 @@ function displayValues () {
 
     listItem.innerHTML = `
     <div class="input-group row g-2">
-      <input type="text" aria-label="name" class="form-control col-md-4 " value="${newRow.name}" disabled>
-      <input type="text" aria-label="phone" class="form-control col-md-4" value="${newRow.phone}" disabled>
-      <div class="col-md-4">
-      <button id="update1" type="submit" class="btn btn-secondary" >Ändra</button>
-      <button id="delete1" type="submit" class="btn btn-danger" >Radera</button>
+      <input type="text"  class="form-control col-md-4 contact-input-name" value="${newRow.name}" disabled>
+      <input type="text"  class="form-control col-md-4 contact-input-phone" value="${newRow.phone}" disabled>
+    <div class="col-md-4">
+      <button  type="submit" class="btn btn-secondary update-button" >Ändra</button>
+      <button  type="submit" class="btn btn-danger delete-button" >Radera</button>
     </div>
     </div>
     `;
+    // Ändra buttan should change disabled->false in input tag 
+
+    let updateBtn = listItem.querySelector(".update-button");
+    let inputedName =listItem.querySelector(".contact-input-name");
+    let inputedPhone = listItem.querySelector(".contact-input-phone");
+
+    updateBtn.addEventListener('click',()=>{
+      inputedName.disabled =false;
+      inputedPhone.disabled=false;
+    });
 
     contact.appendChild(listItem);
   })
 
-
 }
 
+createBtn.addEventListener('click', addList);
 
 
+/**
+ * Delete List
+ */
 
+let deleteAllFromList =() => {
+
+  contact.innerHTML= '';
+  contactList =[];
+}
+
+deleteListBtn.addEventListener('click',deleteAllFromList);
+
+
+/**
+ * Change values an added contact
+ */
+//let inputTag = document.getElementsByTagName("input");
+
+//row: <li class="list-group-item" style="border: none;"><div>...  <input....><input>....</li>
+// row
+
+/*
+function changeValues (row){
+  let inputFields = row.querySelectorAll(".contact-input");
+  console.log(inputFields)
+  inputFields.forEach((e)=>{
+    e.removeAttribute('disabled');
+  })
+  
+}
+
+function buttons (){
+  let updateBtns = document.querySelectorAll(".update-button");
+  updateBtns.forEach((e)=>{
+   e.addEventListener('click', function(){
+   let row = e.closest(".list-group-item");
+   console.log(row);
+  changeValues(row);
+   });
+  
+});
+}
+
+buttons();
+*/
 
 
