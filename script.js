@@ -58,10 +58,10 @@ function displayErrorMessage (block_or_none){
 
 function displayValues () {
 
-  contact.innerHTML= ''; // Clear the contact list
+  contact.innerHTML= ''; // Clear all contacts in the list
   contactList.forEach((newRow, index)=>  {
     
-    let listItem = document.createElement("li");
+    let listItem = document.createElement("li"); // this create each row
     listItem.className ="list-group-item";
     listItem.style.border="none";
 
@@ -77,13 +77,19 @@ function displayValues () {
     `;
 
     //###############Ändra button###########################
-    //1. Ändra buttan should change disabled->false in input tag 
-    //2. Second time it should save changed value
+/**
+ * Function:changeValues
+ * 1. input fields has attribute, disabled. default value is true and it should be changed  to false  
+ *    So user can edit values in the fields
+ * 2. When disabled is false user can change values then the values should be saved to array
+ *    You need to change disabled to be true  
+ */
+    
     let updateBtn = listItem.querySelector(".update-button");
     let inputedName =listItem.querySelector(".contact-input-name");
     let inputedPhone = listItem.querySelector(".contact-input-phone");
 
-    updateBtn.addEventListener('click',()=>{
+    let changeValues =()=>{
       if (inputedName.disabled || inputPhone.disabled){
       // 1.First clisk -> change disabled -> false and Button´s text should be change to Spara (button color)
       inputedName.disabled =false;
@@ -100,18 +106,28 @@ function displayValues () {
       updateBtn.className="btn btn-secondary update-button"
     }
 
-    });
+    };
+
+    updateBtn.addEventListener('click',changeValues);
 
     //###############Radera button###########################
+/**
+ * Function:deleteRow
+ * remove each row(<li> ...</li>) as child from <ol>----</ol> id = contact  
+ * delete object from array
+ */
     let deleteBtn = listItem.querySelector('.delete-button');
     
-    deleteBtn.addEventListener('click',()=>{
+    let deleteRow =()=>{
       contact.removeChild(listItem);
+  
       contactList.splice(index,1);
-      console.log(contactList.length)
-      console.log(contactList)
-    //listItem.style.display="none"; It does not work because when you add a new contact my function printout all list again
-    });
+      console.log(contactList.length);
+      console.log(contactList);
+    //listItem.style.display="none"; It does not work because when you add a new contact my function printout all contacts in list again
+    }
+
+    deleteBtn.addEventListener('click', deleteRow);
 
     contact.appendChild(listItem);
     
