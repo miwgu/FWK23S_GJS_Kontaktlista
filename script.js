@@ -51,18 +51,35 @@ function displayValues () {
     </div>
     </div>
     `;
-    // Ändra buttan should change disabled->false in input tag 
 
+    
+    //1. Ändra buttan should change disabled->false in input tag 
+    //2. Second time it should save changed value
     let updateBtn = listItem.querySelector(".update-button");
     let inputedName =listItem.querySelector(".contact-input-name");
     let inputedPhone = listItem.querySelector(".contact-input-phone");
 
     updateBtn.addEventListener('click',()=>{
+      if (inputedName.disabled || inputPhone.disabled){
+      // 1.First clisk -> change disabled -> false and Button´s text should be change to Spara (button color)
       inputedName.disabled =false;
       inputedPhone.disabled=false;
+      updateBtn.innerHTML="Spara";
+      updateBtn.className="btn btn-success update-button"
+    } else {
+      // 2.Second click -> change values and disabled -> true again and Button´s text should changed to Ändra(button color)
+      newRow.name = inputedName.value;
+      newRow.phone= inputedPhone.value;
+      inputedName.disabled =true;
+      inputedPhone.disabled=true;
+      updateBtn.innerHTML="Ändra";
+      updateBtn.className="btn btn-secondary update-button"
+    }
+
     });
 
     contact.appendChild(listItem);
+    
   })
 
 }
