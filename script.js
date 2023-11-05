@@ -8,11 +8,16 @@ let contact = document.getElementById("contact");
 let deleteListBtn = document.getElementById("deleteList");
 
 
-
-
-
-//let updateBtn = document.getElementById("update");
-//let deleteBtn = document.getElementById("delete");
+/**
+ * Fucntion: addList
+ * Input values, name and phone and add them an one object to an array
+ * If user do not give values in both name and phone input fields
+ * you need to show error message.
+ *   
+ * This includes two functions
+ * 1.displayErrorMessage
+ * 2.displayValues
+ */
 
 let addList =()=>{
     let name= inputName.value;
@@ -36,9 +41,20 @@ let addList =()=>{
 }
 
 
+ /**
+  * Function: displayErrorMessage 
+  * @param {*} block_or_none 
+  * @returns 
+  */
 function displayErrorMessage (block_or_none){
  return errorMessage.style.display =block_or_none;
 }
+
+/**
+ * Function:displayValues
+ * printout contact values as a row which user inputed
+ * 
+ */
 
 function displayValues () {
 
@@ -107,7 +123,10 @@ createBtn.addEventListener('click', addList);
 
 
 /**
- * Delete List
+ * Function: deleteAllFromList
+ * Delete all contacts in the list
+ * Delete between <li>...</li> tag in html
+ * Delete object
  */
 
 let deleteAllFromList =() => {
