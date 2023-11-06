@@ -9,7 +9,7 @@ let deleteListBtn = document.getElementById("deleteList");
 
 
 /**
- * Fucntion: addList
+ * Function: addList
  * Input values, name and phone and add them an one object to an array
  * If user do not give values in both name and phone input fields
  * you need to show error message.
@@ -53,7 +53,7 @@ function displayErrorMessage (block_or_none){
 /**
  * Function:displayValues
  * printout contact values as a row which user inputed
- * 
+ * printout both Ändra button and radera button 
  */
 
 function displayValues () {
@@ -165,39 +165,5 @@ let deleteAllFromList =() => {
 }
 
 deleteListBtn.addEventListener('click',deleteAllFromList);
-
-
-/**
- * Change values an added contact
- */
-//let inputTag = document.getElementsByTagName("input");
-
-//row: <li class="list-group-item" style="border: none;"><div>...  <input....><input>....</li>
-// row
-
-/*
-function changeValues (row){
-  let inputFields = row.querySelectorAll(".contact-input");
-  console.log(inputFields)
-  inputFields.forEach((e)=>{
-    e.removeAttribute('disabled');
-  })
-  
-}
-
-function buttons (){
-  let updateBtns = document.querySelectorAll(".update-button");
-  updateBtns.forEach((e)=>{
-   e.addEventListener('click', function(){
-   let row = e.closest(".list-group-item");
-   console.log(row);
-  changeValues(row);
-   });
-  
-});
-}
-
-buttons();
-*/
 
 
