@@ -7,20 +7,20 @@
     <title>Kontaktlista</title>
 </head>
 <body>
-    <main>
+    <main class="container m-auto">
         
         <div class="container m-sm-5 ">
 
             <h3 class="mt-3 mb-sm-3">Kontaktlista</h3>
 
-          <div class="input-group row g-2">
+          <div class="input-group row g-2 " >
             <input id="inputName" type="text" aria-label="name" class="form-control col-md-4 " placeholder="Namn">
-            <input id="inputPhone" type="text" aria-label="phone" class="form-control col-md-4" placeholder="Telefon">
-            <div class="col-md-4">
+            <input id="inputPhone" type="text" aria-label="phone" class="form-control col-md-4 " placeholder="Telefon">
+            <div class="col-md-3 float-start">
             <button id="create" type="submit" class="btn btn-primary" >Skapa</button>
             <button id="deleteList" type="submit" class="btn btn-danger" >Radera lista</button>
           </div>
-          <div class="invalid-feedback" style="display: none; color: rgb(226, 43, 58);">Får ej skapa tom kontakt</div>
+          <div class="invalid" style="visibility:hidden; color: rgb(226, 43, 58);">Får ej skapa tom kontakt</div>
           </div>
 
 

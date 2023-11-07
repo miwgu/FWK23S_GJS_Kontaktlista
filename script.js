@@ -2,7 +2,7 @@ let contactList =[];
 let inputName = document.getElementById("inputName");
 let inputPhone = document.getElementById("inputPhone");
 let createBtn = document.getElementById("create");
-let errorMessage= document.querySelector(".invalid-feedback");
+let errorMessage= document.querySelector(".invalid");
 let contact = document.getElementById("contact");
 
 let deleteListBtn = document.getElementById("deleteList");
@@ -31,11 +31,12 @@ let addList =()=>{
     console.log(contactList.length)
     console.log(contactList)
    
-    displayErrorMessage("none")
+    displayErrorMessage("hidden")
+    console.log(errorMessage)
     displayValues () 
   } else {
 
-    displayErrorMessage("block")
+    displayErrorMessage("visible")
     
   }
 }
@@ -43,11 +44,11 @@ let addList =()=>{
 
  /**
   * Function: displayErrorMessage 
-  * @param {*} block_or_none 
+  * @param {*} visible_or_hidden
   * @returns 
   */
-function displayErrorMessage (block_or_none){
- return errorMessage.style.display =block_or_none;
+function displayErrorMessage (visible_or_hidden){
+ return errorMessage.style.visibility =visible_or_hidden;// Use visibility insted of display(none, block)
 }
 
 /**
