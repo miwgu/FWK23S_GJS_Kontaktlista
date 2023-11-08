@@ -2,7 +2,9 @@ let contactList =[];
 let inputName = document.getElementById("inputName");
 let inputPhone = document.getElementById("inputPhone");
 let createBtn = document.getElementById("create");
-let errorMessage= document.querySelector(".invalid");
+let errorMessageDiv= document.querySelector(".invalid");
+let errorMessageDiv2= document.querySelector(".invalid2");
+
 let contact = document.getElementById("contact");
 
 let deleteListBtn = document.getElementById("deleteList");
@@ -23,35 +25,57 @@ let addList =()=>{
     let name= inputName.value;
     let phone= inputPhone.value;
 
-    if(inputName.value!==''&&inputPhone.value!==''){
-    let newRow = {name, phone};//Create a object with two variables
-    contactList.push(newRow)
-    inputName.value= '';// Clear the field
-    inputPhone.value='';
-    console.log(contactList.length)
-    console.log(contactList)
-   
-    displayErrorMessage("hidden")
-    console.log(errorMessage)
-    displayValues () 
-  } else {
+    console.log(validatePhone (phone))
 
-    displayErrorMessage("visible")
+    if(inputName.value==''&&inputPhone.value!==''){
+      displayErrorMessage("namn krävs",errorMessageDiv)
+    }
+    else if(inputName.value!==''&&validatePhone (phone)==false){
+      displayErrorMessage("Du måste ange ett giltigt telefonnummer med 10 siffror",errorMessageDiv)
     
+    } 
+    else if(inputName.value!==''&&inputPhone.value!==''&&validatePhone (phone)==true){
+      let newRow = {name, phone};//Create a object with two variables
+      contactList.push(newRow);
+      inputName.value= '';// Clear the field
+      inputPhone.value='';
+      console.log(contactList.length)
+      console.log(contactList)
+
+      deleteListBtn.disabled=false;// aktive delete list button
+      displayErrorMessage("",errorMessageDiv); // There is no error so no message
+      displayValues () ;
+  } else {
+      displayErrorMessage("Får ej skapa tom kontakt", errorMessageDiv);
   }
 }
 
-
  /**
   * Function: displayErrorMessage 
-  * @param {*} visible_or_hidden
+  * @param {*} message
   * @returns 
   */
-function displayErrorMessage (visible_or_hidden){
- return errorMessage.style.visibility =visible_or_hidden;// Use visibility insted of display(none, block)
-}
+ function displayErrorMessage (message, targetTag){
+  //errorMessage.style.visibility =visible_or_hidden;// Use visibility insted of display(none, block)
+  //let errorMessageDiv= document.querySelector(".invalid");
+  return targetTag.innerHTML=message
+ }
+
 
 /**
+ * Function: validatePhone
+ * @param {*} phone 
+ * @returns 
+ */
+function validatePhone (phone) {
+  var regex = /^\d{10}$/;
+  if(!regex.test(phone)){
+    return false; // You need to enter an valid phone number with 10 digits
+   }
+   return true;
+}
+
+/** 
  * Function:displayValues
  * printout contact values as a row which user inputed
  * printout both Ändra button and radera button 
@@ -74,6 +98,7 @@ function displayValues () {
       <button  type="submit" class="btn btn-secondary update-button" >Ändra</button>
       <button  type="submit" class="btn btn-danger delete-button" >Radera</button>
     </div>
+    <div class="invalid2" style="visibility:visible; color: rgb(226, 43, 58);"></div>
     </div>
     `;
 
@@ -140,11 +165,7 @@ function displayValues () {
      }
 
   }
-
     deleteBtn.addEventListener('click', deleteRow);
-
-    
-    
   })
 
 }
@@ -163,6 +184,8 @@ let deleteAllFromList =() => {
 
   contact.innerHTML= '';
   contactList =[];
+  displayErrorMessage ("",errorMessageDiv);
+  deleteListBtn.disabled=true; // When you delete all list the button become inactive 
 }
 
 deleteListBtn.addEventListener('click',deleteAllFromList);
