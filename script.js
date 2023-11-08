@@ -3,12 +3,21 @@ let inputName = document.getElementById("inputName");
 let inputPhone = document.getElementById("inputPhone");
 let createBtn = document.getElementById("create");
 let errorMessageDiv= document.querySelector(".invalid");
-let errorMessageDiv2= document.querySelector(".invalid2");
-
 let contact = document.getElementById("contact");
-
 let deleteListBtn = document.getElementById("deleteList");
 
+/**
+ * Function: disableDeleteListBtn
+ * If 0 "Radiera lista" buttan is disable
+ */
+
+let disableDeleteListBtn=()=>{
+  if(contactList.length==0){
+    deleteListBtn.disabled=true; //// When you delete all list the button become inactive 
+  }
+}
+disableDeleteListBtn();
+console.log(deleteListBtn)
 
 /**
  * Function: addList
@@ -42,7 +51,7 @@ let addList =()=>{
       console.log(contactList.length)
       console.log(contactList)
 
-      deleteListBtn.disabled=false;// aktive delete list button
+      deleteListBtn.disabled=false;// active delete list button
       displayErrorMessage("",errorMessageDiv); // There is no error so no message
       displayValues () ;
   } else {
@@ -52,13 +61,14 @@ let addList =()=>{
 
  /**
   * Function: displayErrorMessage 
-  * @param {*} message
+  * @param {*} message 
+  * @param {*} targetTag 
   * @returns 
   */
  function displayErrorMessage (message, targetTag){
   //errorMessage.style.visibility =visible_or_hidden;// Use visibility insted of display(none, block)
   //let errorMessageDiv= document.querySelector(".invalid");
-  return targetTag.innerHTML=message
+  return targetTag.innerHTML=message;
  }
 
 
@@ -116,6 +126,7 @@ function displayValues () {
     let updateBtn = listItem.querySelector(".update-button");
     let inputedName =listItem.querySelector(".contact-input-name");
     let inputedPhone = listItem.querySelector(".contact-input-phone");
+    let errorMessageDiv2= document.querySelector(".invalid2");
 
     let changeValues =()=>{
       if (inputedName.disabled || inputPhone.disabled){
@@ -126,13 +137,27 @@ function displayValues () {
       updateBtn.className="btn btn-success update-button"
     } else {
       // 2.Second click -> change values and disabled -> true again and Button´s text should changed to Ändra(button color)
+
+      if(inputedName.value==''&&inputedPhone.value!==''){
+        displayErrorMessage("namn krävs",errorMessageDiv2)
+      }
+      else if(inputedName.value!==''&&validatePhone (inputedPhone.value)==false){
+        displayErrorMessage("Du måste ange ett giltigt telefonnummer med 10 siffror",errorMessageDiv2)
+      
+      } 
+      else if(inputedName.value!==''&&inputedPhone.value!==''&&validatePhone (inputedPhone.value)==true){
+      
       newRow.name = inputedName.value;
       newRow.phone= inputedPhone.value;
       inputedName.disabled =true;
       inputedPhone.disabled=true;
       updateBtn.innerHTML="Ändra";
       updateBtn.className="btn btn-secondary update-button"
-    }
+      displayErrorMessage("", errorMessageDiv2);
+  } else {
+    displayErrorMessage("Får ej skapa tom kontakt", errorMessageDiv2);
+   }
+} 
 
     };
 
@@ -158,6 +183,7 @@ function displayValues () {
       // Need to delete object to match this index which you find before
       if(index!==-1){
       contactList.splice(index,1); // delete object in your array 
+      disableDeleteListBtn();
       console.log(contactList.length);
       console.log(contactList);
      } else{
@@ -185,7 +211,7 @@ let deleteAllFromList =() => {
   contact.innerHTML= '';
   contactList =[];
   displayErrorMessage ("",errorMessageDiv);
-  deleteListBtn.disabled=true; // When you delete all list the button become inactive 
+  disableDeleteListBtn();
 }
 
 deleteListBtn.addEventListener('click',deleteAllFromList);
