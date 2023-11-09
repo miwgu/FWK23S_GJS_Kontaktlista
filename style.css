@@ -3,18 +3,6 @@ body {
 
   }
 
-/*#create{
-    color: #f59797;
-    background-color: #775ea3;
-    border-color:#1d0842 ;
-    font-weight: bold;
-    outline: 1px solid;
-    outline-offset: 0px;
-    display: inline-block;
-    transition: .3s;
-    
-}*/
-
   #create {
     border-color: #1d37fc;
     color: #f59797;
@@ -30,21 +18,32 @@ body {
 
 #deleteList{
     color: #ecdcdf;
-    background-color: #fc1d4a;
     border-color:#fc1d4a;
+    box-shadow: 0 0 40px 40px #fc1d4a inset, 0 0 0 0 #fc1d4a;
+    transition: all 150ms ease-in-out;
 
     &:hover {
-        box-shadow: 0 0 10px 0 #1d37fc inset, 0 0 10px 4px #1d37fc;
+        box-shadow: 0 0 10px 0 #fc1d4a inset, 0 0 10px 4px #fc1d4a;
       }
 }
 
 #update{
     color: #ecdcdf;
-    background-color: #fb50bf56;
-    background-color: #f20bad;
+    background-color: #f331aff5;
+    border-color: #f20bad;
     
     &:hover {
         box-shadow: 0 0 10px 0 #f20bad inset, 0 0 10px 4px #e0607a;
+      }
+}
+
+#update_save{
+    color: #fff;
+    background-color: #05e17efe;
+    border-color: #0bf2e6;
+    
+    &:hover {
+        box-shadow: 0 0 10px 0 #0bf2e6 inset, 0 0 10px 4px #0bf2e6;
       }
 }
 
@@ -137,13 +136,13 @@ body {
     /*font-family: "Ryumin ExtraBold KL";*/
     font-family: 'Space Mono', monospace;
     letter-spacing: -0.15rem;
-    animation: llfsdi-text-animation 0.8s forwards;
+    animation: falling-text-animation 0.8s forwards;
     animation-duration: 1s;
     transform: translateY(-1rem);
     opacity: 0;
 }
 
-@keyframes llfsdi-text-animation{
+@keyframes falling-text-animation{
     0% {
         opacity: 0;
         transform: translateY(-1rem);
@@ -154,3 +153,89 @@ body {
         transform: translateY(0rem);
     }
 }
+
+
+
+.line-container {
+    position: relative;
+    width: 100%;
+    height: 1px;
+  }
+
+  .line-container::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background-color: aliceblue; 
+    animation: expandLine 4s ease-out forwards;
+  }
+
+  @keyframes expandLine {
+    0% {
+      width: 0;
+      left: 50%;
+      transform: translateX(0);
+    }
+    50% {
+      width: 100%;
+      left: 0;
+      transform: translateX(0);
+    }
+    100% {
+      width: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+
+  .scroll-container {
+    height: 200px; 
+    overflow-y: scroll; /* Add a vertical scrollbar */
+    background-color: #d1f4fe27;    
+    border-radius:30px;
+  
+ }
+
+
+
+  footer{
+    color: aliceblue;
+    background-color:rgba(0, 0, 0, 0.71);
+    opacity: 40%;
+    text-align: center;
+    bottom: 0;
+  }
+
+  @media only screen and (max-width: 600px){
+    footer{
+      height: 200px;      
+      padding: 5px; 
+    }
+
+    .scroll-container {
+        height: 280px; 
+        overflow-y: scroll; /* Add a vertical scrollbar */
+        background-color: #d1f4fe27;    
+        border-radius:20px;
+        padding: 10px;
+      
+     }
+}
+@media only screen and (min-width: 601px){
+    footer{
+      height: 180px;
+      padding: 10px;
+    }
+}
+
+  @media only screen and (min-width: 1200px){
+     footer {
+      height: 180px;
+      padding: 20px;      
+      
+  
+
+     } 
+    }

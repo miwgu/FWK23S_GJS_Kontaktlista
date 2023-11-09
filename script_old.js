@@ -97,16 +97,16 @@ function displayValues () {
   contactList.forEach((newRow, index)=>  {
     
     let listItem = document.createElement("li"); // this create each row
-    listItem.className ="list-start md-3 p-lg-1";
+    listItem.className ="list-group-item";
     listItem.style.border="none";
 
     listItem.innerHTML = `
     <div class="input-group row g-2">
       <input type="text"  class="form-control col-md-4 contact-input-name" value="${newRow.name}" disabled>
-      <input type="text"  class="form-control col-md-4 contact-input-phone" value="${newRow.phone}" pattern="[0-9]{1,10}" maxlength="10" disabled>
+      <input type="text"  class="form-control col-md-4 contact-input-phone" value="${newRow.phone}" disabled>
     <div class="col-md-4">
-      <button id="update" type="submit" class="btn btn-secondary update-button" >Ändra</button>
-      <button id="delete" type="submit" class="btn btn-danger delete-button" >Radera</button>
+      <button  type="submit" class="btn btn-secondary update-button" >Ändra</button>
+      <button  type="submit" class="btn btn-danger delete-button" >Radera</button>
     </div>
     <div class="invalid2" style="visibility:visible; color: rgb(226, 43, 58);"></div>
     </div>
@@ -134,8 +134,7 @@ function displayValues () {
       inputedName.disabled =false;
       inputedPhone.disabled=false;
       updateBtn.innerHTML="Spara";
-      //updateBtn.className="btn btn-success update-button"
-      updateBtn.id="update_save";// Change to "Spara" button
+      updateBtn.className="btn btn-success update-button"
     } else {
       // 2.Second click -> change values and disabled -> true again and Button´s text should changed to Ändra(button color)
 
@@ -153,7 +152,7 @@ function displayValues () {
       inputedName.disabled =true;
       inputedPhone.disabled=true;
       updateBtn.innerHTML="Ändra";
-      updateBtn.id="update";//change to Ändra button
+      updateBtn.className="btn btn-secondary update-button"
       displayErrorMessage("", errorMessageDiv2);
   } else {
     displayErrorMessage("Får ej skapa tom kontakt", errorMessageDiv2);
