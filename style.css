@@ -1,0 +1,156 @@
+body {
+    background-image: url("images/Moon2.svg");
+
+  }
+
+/*#create{
+    color: #f59797;
+    background-color: #775ea3;
+    border-color:#1d0842 ;
+    font-weight: bold;
+    outline: 1px solid;
+    outline-offset: 0px;
+    display: inline-block;
+    transition: .3s;
+    
+}*/
+
+  #create {
+    border-color: #1d37fc;
+    color: #f59797;
+    
+    box-shadow: 0 0 40px 40px #1d37fc inset, 0 0 0 0 #1d37fc;
+    transition: all 150ms ease-in-out;
+    
+    &:hover {
+      box-shadow: 0 0 10px 0 #1d37fc inset, 0 0 10px 4px #1d37fc;
+    }
+  }
+   
+
+#deleteList{
+    color: #ecdcdf;
+    background-color: #fc1d4a;
+    border-color:#fc1d4a;
+
+    &:hover {
+        box-shadow: 0 0 10px 0 #1d37fc inset, 0 0 10px 4px #1d37fc;
+      }
+}
+
+#update{
+    color: #ecdcdf;
+    background-color: #fb50bf56;
+    background-color: #f20bad;
+    
+    &:hover {
+        box-shadow: 0 0 10px 0 #f20bad inset, 0 0 10px 4px #e0607a;
+      }
+}
+
+#delete{
+    color: #ecdcdf;
+    background-color: #fc1d4a;
+    border-color:#fc1d4a;
+
+    &:hover {
+        box-shadow: 0 0 10px 0 #fc1d4a inset, 0 0 10px 4px #e0607a;
+      }
+}
+
+.star1 {
+    height: 10px; 
+    padding: 1px;
+	animation: flashing 4s infinite;
+}
+@keyframes flashing {
+	0% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.star2 {
+    height: 20px;
+	animation: flashing 3s infinite;
+}
+@keyframes flashing {
+	0% {
+		opacity: 1;
+	}
+	770% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.star3 {
+    width: 10px;
+    margin-top: 80px;
+	animation: flashing 5s infinite;
+}
+@keyframes flashing {
+	0% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.fuwafuwa {
+    animation: fuwafuwa 3s ease-in-out infinite alternate;
+    
+    display: inline-block;
+    transition: 1.5s ease-in-out;
+    width: 70px;
+    height: 70px;
+    margin-top: 15px;
+  }
+   
+  @keyframes fuwafuwa {
+    0% {
+      transform:translate(0, 0) rotate(-7deg);
+    }
+    50% {
+      transform:translate(0, -7px) rotate(0deg);
+    }
+    100% {
+      transform:translate(0, 0) rotate(7deg);
+    }
+  }
+
+ 
+  .text {
+    display: inline-block;
+    font-size: 2rem;
+    color: #f8f0f0;
+    /*font-family: "Ryumin ExtraBold KL";*/
+    font-family: 'Space Mono', monospace;
+    letter-spacing: -0.15rem;
+    animation: llfsdi-text-animation 0.8s forwards;
+    animation-duration: 1s;
+    transform: translateY(-1rem);
+    opacity: 0;
+}
+
+@keyframes llfsdi-text-animation{
+    0% {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+}
