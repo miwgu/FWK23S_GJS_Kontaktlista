@@ -3,6 +3,7 @@ let inputName = document.getElementById("inputName");
 let inputPhone = document.getElementById("inputPhone");
 let createBtn = document.getElementById("create");
 let errorMessageDiv= document.querySelector(".invalid");
+
 let contact = document.getElementById("contact");
 let deleteListBtn = document.getElementById("deleteList");
 
@@ -145,6 +146,15 @@ function displayValues () {
     listItem.className ="list-start md-3 p-lg-1";
     listItem.style.border="none";
 
+    // delete this div from listItem.innerHTML because my validatefields-function is outside displayValues-function 
+    //Each row should have its own error message element!
+   //<div class="invalid2" style=" color: rgb(226, 43, 58);"></div>
+    let errorMessageDiv2= document.createElement("div");
+    errorMessageDiv2.className=("invalid2");
+    errorMessageDiv2.style.color="rgb(226,43,58)";
+
+    // Actually both Ändra and Radera buttons works without index
+    //but adding unique identifiers makes more robust code
     listItem.innerHTML = `
     <div class="input-group row g-2">
       <input type="text"  class="form-control col-md-4 contact-input-name" value="${newRow.name}" disabled>
@@ -153,11 +163,12 @@ function displayValues () {
       <button id="update" type="submit" class="btn btn-secondary update-button" >Ändra</button>
       <button id="delete" type="submit" class="btn btn-danger delete-button" >Radera</button>
     </div>
-    <div class="invalid2" style=" color: rgb(226, 43, 58);"></div>
+    
     </div>
     `;
 
-    contact.appendChild(listItem);
+ listItem.appendChild(errorMessageDiv2);   
+ contact.appendChild(listItem);
 
     //###############Ändra button###########################
 /**
@@ -168,10 +179,10 @@ function displayValues () {
  *    You need to change disabled to be true  
  */
     
-    let updateBtn = listItem.querySelector(".update-button");
+    let updateBtn = listItem.querySelector(".update-button");// Use unique identifire
     let inputedName =listItem.querySelector(".contact-input-name");
     let inputedPhone = listItem.querySelector(".contact-input-phone");
-    let errorMessageDiv2= document.querySelector(".invalid2");
+    //let errorMessageDiv2= document.querySelector(".invalid2");
     //let nameInList= inputedName.value;
     //let phoneInList= inputedName.value;
 
@@ -233,7 +244,7 @@ function displayValues () {
  * find index which you want to delete  
  * delete object from array
  */
-    let deleteBtn = listItem.querySelector('.delete-button');
+    let deleteBtn = listItem.querySelector(".delete-button");
     
     let deleteRow =()=>{
 
