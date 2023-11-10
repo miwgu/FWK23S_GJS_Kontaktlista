@@ -48,33 +48,18 @@ let addList =()=>{
     console.log(contactList)
 
     deleteListBtn.disabled=false;// active delete list button
-    //displayErrorMessage("",errorMessageDiv); // There is no error so no message
     displayValues () ;
   }
-/*
-  if(inputName.value==''&&inputPhone.value!==''){
-    displayErrorMessage("namn krävs",errorMessageDiv)
-  }
-  else if(inputName.value!==''&&validatePhone (phone)==false){
-    displayErrorMessage("Du måste ange ett giltigt telefonnummer med 10 siffror",errorMessageDiv)
-  
-  } 
-  else if(inputName.value!==''&&inputPhone.value!==''&&validatePhone (phone)==true){
-    let newRow = {name, phone};//Create a object with two variables
-    contactList.push(newRow);
-    inputName.value= '';// Clear the field
-    inputPhone.value='';
-    console.log(contactList.length)
-    console.log(contactList)
 
-    deleteListBtn.disabled=false;// active delete list button
-    displayErrorMessage("",errorMessageDiv); // There is no error so no message
-    displayValues () ;
-} else {
-    displayErrorMessage("Får ej skapa tom kontakt", errorMessageDiv);
 }
-*/
-}
+/**
+ * validatefields function
+ * @param {*} name_input 
+ * @param {*} phone_input 
+ * @param {*} error_Div 
+ * This function includes two functions, displayErrorMessage and validatePhone
+ * This is used for addList-fucntion and changeValues-function inside displayValues-function 
+ */
 
 function validatefields(name_input, phone_input, error_Div ){
 
@@ -86,23 +71,12 @@ function validatefields(name_input, phone_input, error_Div ){
   
   } 
   else if(name_input!==''&&phone_input!==''&&validatePhone (phone_input)==true){
-    /*let newRow = {name, phone};//Create a object with two variables
-    contactList.push(newRow);
-    inputName.value= '';// Clear the field
-    inputPhone.value='';
-    console.log(contactList.length)
-    console.log(contactList)
 
-    deleteListBtn.disabled=false;// active delete list button
-    
-    displayValues () ;*/
     displayErrorMessage("",error_Div); // There is no error so no message
 } else {
     displayErrorMessage("Får ej skapa tom kontakt", error_Div);
 }
-
 }
-
 
  /**
   * Function: displayErrorMessage 
@@ -153,8 +127,6 @@ function displayValues () {
     errorMessageDiv2.className=("invalid2");
     errorMessageDiv2.style.color="rgb(226,43,58)";
 
-    // Actually both Ändra and Radera buttons works without index
-    //but adding unique identifiers makes more robust code
     listItem.innerHTML = `
     <div class="input-group row g-2">
       <input type="text"  class="form-control col-md-4 contact-input-name" value="${newRow.name}" disabled>
@@ -179,12 +151,9 @@ function displayValues () {
  *    You need to change disabled to be true  
  */
     
-    let updateBtn = listItem.querySelector(".update-button");// Use unique identifire
+    let updateBtn = listItem.querySelector(".update-button");
     let inputedName =listItem.querySelector(".contact-input-name");
     let inputedPhone = listItem.querySelector(".contact-input-phone");
-    //let errorMessageDiv2= document.querySelector(".invalid2");
-    //let nameInList= inputedName.value;
-    //let phoneInList= inputedName.value;
 
     let changeValues =()=>{
       if (inputedName.disabled || inputPhone.disabled){
@@ -209,28 +178,6 @@ function displayValues () {
         updateBtn.id="update";//change to Ändra button
         
     }
-
-      /*
-      if(inputedName.value==''&&inputedPhone.value!==''){
-        displayErrorMessage("namn krävs",errorMessageDiv2)
-      }
-      else if(inputedName.value!==''&&validatePhone (inputedPhone.value)==false){
-        displayErrorMessage("Du måste ange ett giltigt telefonnummer med 10 siffror",errorMessageDiv2)
-      
-      } 
-      else if(inputedName.value!==''&&inputedPhone.value!==''&&validatePhone (inputedPhone.value)==true){
-      
-      newRow.name = inputedName.value;
-      newRow.phone= inputedPhone.value;
-      inputedName.disabled =true;
-      inputedPhone.disabled=true;
-      updateBtn.innerHTML="Ändra";
-      updateBtn.id="update";//change to Ändra button
-      displayErrorMessage("", errorMessageDiv2);
-  } else {
-    displayErrorMessage("Får ej skapa tom kontakt", errorMessageDiv2);
-   }
-   */
 } 
 
     };
