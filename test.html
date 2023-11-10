@@ -42,11 +42,11 @@
           <div class="input-group row g-2 " >
             <input id="inputName" type="text" aria-label="name" class="form-control col-md-4 "   placeholder="Namn">
             <input id="inputPhone" type="text" aria-label="phone" class="form-control col-md-4 " placeholder="Telefon">
-            <div class="col-md-3 float-start">
+            <div class="col-md-3 mx-1">
             <button id="create" type="submit" class="btn btn-primary" >Skapa</button>
             <button id="deleteList" type="submit" class="btn btn-danger" disabled>Radera lista</button>
             </div>
-          <div class="invalid" style="visibility:visible; color: rgb(226, 43, 58);"></div>
+          <div class="invalid" style=" color: rgb(226, 43, 58);"></div>
           </div>
 
         </div>
@@ -59,16 +59,16 @@
         
         <div class="container scroll-container m-lg-3 p-lg-2" data-bs-spy="scroll" data-bs-smooth-scroll="true">
 
-          <div class="scroll-main" style=" width: 900px;" >
+          <div class="scroll-main" style=" width: 75vw;" >
 
           <ol id="contact" class="list-group m-1 p-1">
 
-
+<!-- Here print out contact list
             <li class="list-start md-3 p-lg-1" style="border: none; " >
               <div class="input-group row g-2 p-3">
                 <input id="nameInList1" type="text" aria-label="name" class="form-control col-md-4" disabled>
                 <input id="phoneInList1" type="text" aria-label="phone" class="form-control col-md-4" disabled>
-                <div class="col-md-4 m-1">
+                <div class="col-md-4 mx-1">
                 <button id="update" type="submit" class="btn btn-secondary" >Ändra</button>
                 <button id="delete" type="submit" class="btn btn-danger" >Radera</button>
               </div>
@@ -79,22 +79,29 @@
               <div class="input-group row g-2 p-3">
                 <input id="nameInList2" type="text" aria-label="name" class="form-control col-md-4" placeholder="Namn">
                 <input id="phoneInList1" type="text" aria-label="phone" class="form-control col-md-4" placeholder="Telefon" maxlength="10">
-                <div class="col-md-4 m-1">
+                <div class="col-md-4 mx-1">
                 <button id="update" type="submit" class="btn btn-secondary update-button" >Ändra</button>
                 <button id="delete" type="submit" class="btn btn-danger delete-button" >Radera</button>
               </div>
               </div>
             </li>
-
+-->
 
           </ol>
         </div>
 
         </div>
 
-
+        <div class="m-lg-3">
+          <img class="star1" src="images/Star.png" alt="star1">
+          <img class="star2" src="images/Star.png" alt="star2">
+          <span><br></span>
+          <img class="star2 float-sm-end" src="images/Star.png" alt="star2">
+        </div>
     </main>
+
     <hr class="line" style="color: rgba(255, 255, 255, 0);"/>
+
     <footer class="mt-lg-5" >
       
       <div id="footer_div">

@@ -31,77 +31,33 @@ console.log(deleteListBtn)
  */
 
 let addList =()=>{
-  let name= inputName.value;
-  let phone= inputPhone.value;
+    let name= inputName.value;
+    let phone= inputPhone.value;
 
-  console.log(validatePhone (phone))
+    console.log(validatePhone (phone))
 
-  validatefields(name, phone, errorMessageDiv)
-
-  if(name!==''&&phone!==''&&validatePhone (phone)==true){
-    let newRow = {name, phone};//Create a object with two variables
-    contactList.push(newRow);
-    inputName.value= '';// Clear the field
-    inputPhone.value='';
-    console.log(contactList.length)
-    console.log(contactList)
-
-    deleteListBtn.disabled=false;// active delete list button
-    //displayErrorMessage("",errorMessageDiv); // There is no error so no message
-    displayValues () ;
-  }
-/*
-  if(inputName.value==''&&inputPhone.value!==''){
-    displayErrorMessage("namn krävs",errorMessageDiv)
-  }
-  else if(inputName.value!==''&&validatePhone (phone)==false){
-    displayErrorMessage("Du måste ange ett giltigt telefonnummer med 10 siffror",errorMessageDiv)
-  
-  } 
-  else if(inputName.value!==''&&inputPhone.value!==''&&validatePhone (phone)==true){
-    let newRow = {name, phone};//Create a object with two variables
-    contactList.push(newRow);
-    inputName.value= '';// Clear the field
-    inputPhone.value='';
-    console.log(contactList.length)
-    console.log(contactList)
-
-    deleteListBtn.disabled=false;// active delete list button
-    displayErrorMessage("",errorMessageDiv); // There is no error so no message
-    displayValues () ;
-} else {
-    displayErrorMessage("Får ej skapa tom kontakt", errorMessageDiv);
-}
-*/
-}
-
-function validatefields(name_input, phone_input, error_Div ){
-
-  if(name_input==''&&phone_input!==''){
-    displayErrorMessage("namn krävs",error_Div)
-  }
-  else if(name_input!==''&&validatePhone (phone_input)==false){
-    displayErrorMessage("Du måste ange ett giltigt telefonnummer med 10 siffror",error_Div)
-  
-  } 
-  else if(name_input!==''&&phone_input!==''&&validatePhone (phone_input)==true){
-    /*let newRow = {name, phone};//Create a object with two variables
-    contactList.push(newRow);
-    inputName.value= '';// Clear the field
-    inputPhone.value='';
-    console.log(contactList.length)
-    console.log(contactList)
-
-    deleteListBtn.disabled=false;// active delete list button
+    if(inputName.value==''&&inputPhone.value!==''){
+      displayErrorMessage("namn krävs",errorMessageDiv)
+    }
+    else if(inputName.value!==''&&validatePhone (phone)==false){
+      displayErrorMessage("Du måste ange ett giltigt telefonnummer med 10 siffror",errorMessageDiv)
     
-    displayValues () ;*/
-    displayErrorMessage("",error_Div); // There is no error so no message
-} else {
-    displayErrorMessage("Får ej skapa tom kontakt", error_Div);
-}
+    } 
+    else if(inputName.value!==''&&inputPhone.value!==''&&validatePhone (phone)==true){
+      let newRow = {name, phone};//Create a object with two variables
+      contactList.push(newRow);
+      inputName.value= '';// Clear the field
+      inputPhone.value='';
+      console.log(contactList.length)
+      console.log(contactList)
 
+      deleteListBtn.disabled=false;// active delete list button
+      displayErrorMessage("",errorMessageDiv); // There is no error so no message
+      displayValues () ;
+  } else {
+      displayErrorMessage("Får ej skapa tom kontakt", errorMessageDiv);
+  }
 }
-
 
  /**
   * Function: displayErrorMessage 
@@ -129,7 +85,6 @@ function validatePhone (phone) {
    return true;
 }
 
-
 /** 
  * Function:displayValues
  * printout contact values as a row which user inputed
@@ -153,7 +108,7 @@ function displayValues () {
       <button id="update" type="submit" class="btn btn-secondary update-button" >Ändra</button>
       <button id="delete" type="submit" class="btn btn-danger delete-button" >Radera</button>
     </div>
-    <div class="invalid2" style=" color: rgb(226, 43, 58);"></div>
+    <div class="invalid2" style="visibility:visible; color: rgb(226, 43, 58);"></div>
     </div>
     `;
 
@@ -172,8 +127,6 @@ function displayValues () {
     let inputedName =listItem.querySelector(".contact-input-name");
     let inputedPhone = listItem.querySelector(".contact-input-phone");
     let errorMessageDiv2= document.querySelector(".invalid2");
-    //let nameInList= inputedName.value;
-    //let phoneInList= inputedName.value;
 
     let changeValues =()=>{
       if (inputedName.disabled || inputPhone.disabled){
@@ -185,21 +138,7 @@ function displayValues () {
       updateBtn.id="update_save";// Change to "Spara" button
     } else {
       // 2.Second click -> change values and disabled -> true again and Button´s text should changed to Ändra(button color)
-     
-      validatefields(inputedName.value, inputedPhone.value, errorMessageDiv2)
 
-
-      if(inputedName.value!==''&&inputedPhone.value!==''&&validatePhone (inputedPhone.value)==true){
-        newRow.name = inputedName.value;
-        newRow.phone= inputedPhone.value;
-        inputedName.disabled =true;
-        inputedPhone.disabled=true;
-        updateBtn.innerHTML="Ändra";
-        updateBtn.id="update";//change to Ändra button
-        
-    }
-
-      /*
       if(inputedName.value==''&&inputedPhone.value!==''){
         displayErrorMessage("namn krävs",errorMessageDiv2)
       }
@@ -219,7 +158,6 @@ function displayValues () {
   } else {
     displayErrorMessage("Får ej skapa tom kontakt", errorMessageDiv2);
    }
-   */
 } 
 
     };
