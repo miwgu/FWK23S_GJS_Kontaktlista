@@ -195,18 +195,25 @@ body {
     overflow-y: scroll; /* Add a vertical scrollbar */
     background-color: #d1f4fe27;    
     border-radius:30px;
-  
+    display:flex;
+    justify-content: center;
+    padding: auto;
  }
 
 
+ #contact{
+    color:aliceblue;  /*number of each row becomes this color*/
+    
+ }
 
   footer{
     color: aliceblue;
-    background-color:rgba(0, 0, 0, 0.71);
+    background-color:rgba(0, 0, 0, 0.637);
     opacity: 40%;
     text-align: center;
     bottom: 0;
   }
+
 
   @media only screen and (max-width: 600px){
     footer{
@@ -215,10 +222,9 @@ body {
     }
 
     .scroll-container {
-        height: 280px; 
-        overflow-y: scroll; /* Add a vertical scrollbar */
-        background-color: #d1f4fe27;    
-        border-radius:20px;
+        height: 280px;  
+        
+        border-radius:17px;
         padding: 10px;
       
      }
@@ -228,14 +234,19 @@ body {
       height: 180px;
       padding: 10px;
     }
+
+    .scroll-container {
+        height: 280px;  
+        border-radius:10px;
+        padding: 10px;
+        
+      
+     }
 }
 
   @media only screen and (min-width: 1200px){
      footer {
       height: 180px;
       padding: 20px;      
-      
-  
-
      } 
     }

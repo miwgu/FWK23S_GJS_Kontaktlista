@@ -10,9 +10,9 @@
 <body>
     <main class="container m-auto">
         
-        <div class="container  mx-lg-5">
+        <div class="container my-lg-3 mx-lg-3">
 
-          <div class="my-lg-1 mx-lg-2">
+          <div class="m-lg-2">
             <img class="star1" src="images/Star.png" alt="star1">
             <img class="fuwafuwa" src="images/rocket-2026998_1280.png" alt="" style="height: 100px;">
             <img class="star2" src="images/Star.png" alt="star2">
@@ -52,21 +52,23 @@
         </div>
 
         <hr class="line" style="color: rgba(255, 255, 255, 0);"/>
-        <div class="line-container m-4 "></div>
+        <div class="line-container my-lg-3  "></div>
+        <hr class="line" style="color: rgba(255, 255, 255, 0);"/>
+        
 
         
-        <div class="scroll-container m-lg-3 p-lg-2" data-bs-spy="scroll" data-bs-smooth-scroll="true">
+        <div class="container scroll-container m-lg-3 p-lg-2" data-bs-spy="scroll" data-bs-smooth-scroll="true">
 
-          <div class="scroll-main">
+          <div class="scroll-main" style=" width: 900px;" >
 
-          <ol id="contact" class="list-group m-1 p-1" style="color: aliceblue;">
+          <ol id="contact" class="list-group m-1 p-1">
 
 
             <li class="list-start md-3 p-lg-1" style="border: none; " >
-              <div class="input-group row g-2">
-                <input id="nameInList1" type="text" aria-label="name" class="form-control col-md-4 " disabled>
+              <div class="input-group row g-2 p-3">
+                <input id="nameInList1" type="text" aria-label="name" class="form-control col-md-4" disabled>
                 <input id="phoneInList1" type="text" aria-label="phone" class="form-control col-md-4" disabled>
-                <div class="col-md-4">
+                <div class="col-md-4 m-1">
                 <button id="update" type="submit" class="btn btn-secondary" >Ändra</button>
                 <button id="delete" type="submit" class="btn btn-danger" >Radera</button>
               </div>
@@ -74,10 +76,10 @@
             </li>
 
             <li class="md-3 p-lg-1" style="border: none;">
-              <div class="input-group row g-2">
-                <input id="nameInList2" type="text" aria-label="name" class="form-control col-md-4 " placeholder="Namn">
+              <div class="input-group row g-2 p-3">
+                <input id="nameInList2" type="text" aria-label="name" class="form-control col-md-4" placeholder="Namn">
                 <input id="phoneInList1" type="text" aria-label="phone" class="form-control col-md-4" placeholder="Telefon" maxlength="10">
-                <div class="col-md-4">
+                <div class="col-md-4 m-1">
                 <button id="update" type="submit" class="btn btn-secondary update-button" >Ändra</button>
                 <button id="delete" type="submit" class="btn btn-danger delete-button" >Radera</button>
               </div>
@@ -92,7 +94,8 @@
 
 
     </main>
-    <footer >
+    <hr class="line" style="color: rgba(255, 255, 255, 0);"/>
+    <footer class="mt-lg-5" >
       
       <div id="footer_div">
         <hr style="color: aliceblue;"/>
